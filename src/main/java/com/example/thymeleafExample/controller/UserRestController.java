@@ -17,7 +17,7 @@ import com.example.thymeleafExample.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserRestController {
 	
 	@Autowired
 	private UserService userService;

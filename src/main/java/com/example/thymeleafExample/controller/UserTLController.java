@@ -17,7 +17,7 @@ import com.example.thymeleafExample.service.UserService;
 //@RequestMapping
 //("/test")
 @Controller
-public class ThymeLeafController {
+public class UserTLController {
 	
 	@Autowired
 	private UserService userService;
@@ -59,8 +59,8 @@ public class ThymeLeafController {
 		return "admin/viewUsers"; 
 	}
 
-	@GetMapping("/home")
-	public String home() {
-		return "home"; 
-	}
+//	@GetMapping("/home")
+//	public String home() {
+//		return "home"; 
+//	}
 }

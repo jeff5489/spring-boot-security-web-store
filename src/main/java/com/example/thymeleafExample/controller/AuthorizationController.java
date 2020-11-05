@@ -1,44 +1,34 @@
 package com.example.thymeleafExample.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-//@RequestMapping("/")
+import com.example.thymeleafExample.model.Product;
+import com.example.thymeleafExample.service.ProductService;
+
+@Controller
 public class AuthorizationController {
 	
-    @GetMapping()
-    public String home() {
-        return ("<h1>/ reached</h1>");
-    }
+//    @GetMapping("/home")
+//    public String home() {
+//        return ("<h1>/ reached</h1>");
+//    }
     
-    @GetMapping("/admin")
-    public String admin() {
-        return ("<h1>admin reached</h1>");
-    }
+    @Autowired
+	private ProductService productService;
+	
+	@GetMapping("/home")
+	public String viewProducts(Model model) {
+		List<Product> products = productService.findAll();
+		model.addAttribute("products", products);
+		return "home"; 
+	}
+
     
-    @GetMapping("/customer")
-    public String customer() {
-        return ("<h1>customer reached</h1>");
-    }
-    
-    @GetMapping("/tleaf")
-    public String tl(Model model) {
-    	model.addAttribute("theDate", new java.util.Date());
-        return "tleaf.html";
-    }
-    
-//    @GetMapping("/hello")
-//	public String sayHello(Model theModel) {
-//		theModel.addAttribute("theDate", new java.util.Date());
-//		return "helloworld";
-//	}
-    
-    @GetMapping("/user")
-    public String user() {
-        return ("<h1>user reached</h1>");
-    }
+
 
 }

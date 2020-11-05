@@ -19,14 +19,12 @@ public class CustomerController {
 	@GetMapping("/customer/saveUserForm")
 	public String showSaveForm(Model model) {
 		User user = new User();
-//		user.setRoles("ROLE_USER");
-		model.addAttribute("user", user);
+		model.addAttribute("user", user); 
 		return "nonCustomer/saveCustomerForm"; 
 	}
 	
 	@PostMapping("/customer/saveCustomer")
 	public String saveCustomerUser(@ModelAttribute("user") User user, Model model) {
-		user.setRoles("ROLE_USER");
 		userService.save(user);
 		return "home"; 
 	}

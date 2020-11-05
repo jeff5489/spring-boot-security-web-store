@@ -18,7 +18,7 @@ import com.example.thymeleafExample.service.UserService;
 
 @Controller
 //@RequestMapping("/admin")
-public class ProductController {
+public class ProductTLController {
 	
 	@Autowired
 	private ProductService productService;
