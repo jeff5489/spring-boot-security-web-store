@@ -11,12 +11,14 @@ import com.example.thymeleafExample.model.Product;
 import com.example.thymeleafExample.service.ProductService;
 
 @Controller
-public class AuthorizationController {
+public class HomeController {
 	
-//    @GetMapping("/home")
-//    public String home() {
-//        return ("<h1>/ reached</h1>");
-//    }
+    @GetMapping("/")
+    public String home(Model model) {
+    	List<Product> products = productService.findAll();
+		model.addAttribute("products", products);
+        return "home";
+    }
     
     @Autowired
 	private ProductService productService;

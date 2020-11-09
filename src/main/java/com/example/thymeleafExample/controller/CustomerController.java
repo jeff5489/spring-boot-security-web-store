@@ -19,7 +19,7 @@ public class CustomerController {
 	@GetMapping("/customer/saveUserForm")
 	public String showSaveForm(Model model) {
 		User user = new User();
-		model.addAttribute("user", user); 
+		model.addAttribute("user", user);
 		return "nonCustomer/saveCustomerForm"; 
 	}
 	
