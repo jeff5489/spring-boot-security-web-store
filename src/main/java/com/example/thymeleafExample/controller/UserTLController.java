@@ -22,6 +22,11 @@ public class UserTLController {
 	@Autowired
 	private UserService userService;
 	
+	@GetMapping("/usertest")
+	public String usertest() {
+		return "usertest"; 
+	}
+	
 	@GetMapping("/admin/users")
 	public String viewUsers(Model model) {
 		List<User> users = userService.findAll();
